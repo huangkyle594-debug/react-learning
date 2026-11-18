@@ -28,3 +28,9 @@ npm run preview
 npm run example:js
 npm run example:ts
 ```
+
+## 打开 CSS 学习页面
+
+```bash
+npm run example:css
+```

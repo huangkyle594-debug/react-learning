@@ -1,0 +1,386 @@
+/* CSS 学习页面全局样式 */
+
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --surface: #ffffff;
+  --background: #f8fafc;
+}
+
+* {
+  /* border-box 会把 padding 和 border 算进 width，更容易控制尺寸 */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1100px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+/* 顶部导航 */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+  background: rgb(255 255 255 / 90%);
+  backdrop-filter: blur(12px);
+}
+
+.nav {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* 页面主体 */
+
+.page-content {
+  padding-block: 48px 72px;
+}
+
+.hero {
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1.15;
+}
+
+.hero > p:last-child {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.card {
+  margin-bottom: 24px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgb(15 23 42 / 5%);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+/* 1. 盒模型 */
+
+.box-model-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.demo-box {
+  width: 240px;
+  min-height: 160px;
+  padding: 20px;
+  border: 8px solid #a5b4fc;
+  margin: 12px;
+  border-radius: 12px;
+  background: #eef2ff;
+}
+
+.content-box {
+  box-sizing: content-box;
+}
+
+.border-box {
+  box-sizing: border-box;
+  background: #ecfdf5;
+  border-color: #86efac;
+}
+
+/* 2. 文字、颜色和背景 */
+
+.text-demo {
+  color: #334155;
+  font-size: 1.125rem;
+  line-height: 2;
+  letter-spacing: 0.03em;
+}
+
+.background-demo {
+  padding: 24px;
+  border-radius: 12px;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), #06b6d4);
+  box-shadow: 0 12px 30px rgb(79 70 229 / 25%);
+}
+
+/* 3. display */
+
+.block-item {
+  display: block;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background: #e0e7ff;
+}
+
+.inline-item {
+  display: inline;
+  padding: 8px 12px;
+  background: #dcfce7;
+}
+
+.inline-block-item {
+  display: inline-block;
+  width: 180px;
+  height: 48px;
+  margin: 4px;
+  padding: 12px;
+  background: #fef3c7;
+}
+
+/* 4. Flex */
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  min-height: 180px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f1f5f9;
+}
+
+.flex-item {
+  flex: 1 1 140px;
+  min-height: 80px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: white;
+  background: var(--primary);
+}
+
+.flex-item.large {
+  flex: 2 1 200px;
+  background: #0f766e;
+}
+
+/* 5. Grid */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.grid-item {
+  min-height: 100px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: #0ea5e9;
+}
+
+.grid-item:nth-child(2) {
+  background: #8b5cf6;
+}
+
+.grid-item:nth-child(4) {
+  background: #f97316;
+}
+
+/* 6. position */
+
+.position-demo {
+  padding: 24px;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.position-card {
+  position: relative;
+  min-height: 160px;
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid var(--border);
+}
+
+.absolute-badge {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: white;
+  background: #ef4444;
+}
+
+/* 7. 伪类和状态 */
+
+.pseudo-list {
+  padding: 0;
+  list-style: none;
+}
+
+.pseudo-list li {
+  margin-bottom: 8px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+/* :hover 表示鼠标悬停 */
+.pseudo-list li:hover {
+  background: #e0e7ff;
+  transform: translateX(4px);
+}
+
+/* :nth-child(3) 表示选择第三个 li */
+.pseudo-list li:nth-child(3) {
+  color: white;
+  background: var(--primary);
+}
+
+.state-button,
+.animated-button {
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  background: var(--primary);
+  cursor: pointer;
+}
+
+.state-button {
+  padding: 10px 16px;
+}
+
+/* :active 表示鼠标正在按下 */
+.state-button:active {
+  transform: scale(0.96);
+  background: var(--primary-dark);
+}
+
+/* 8. 过渡和变形 */
+
+.animated-button {
+  padding: 14px 22px;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.animated-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: #7c3aed;
+  box-shadow: 0 12px 24px rgb(124 58 237 / 30%);
+}
+
+/* 9. 响应式 */
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.responsive-item {
+  min-height: 120px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #ecfeff;
+  border: 1px solid #a5f3fc;
+}
+
+/* 固定定位示例，不随页面滚动 */
+
+.floating-tip {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: white;
+  background: #0f172a;
+  box-shadow: 0 10px 30px rgb(15 23 42 / 25%);
+}
+
+.site-footer {
+  padding-block: 28px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* 媒体查询：屏幕宽度小于 700px 时生效 */
+
+@media (max-width: 700px) {
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-block: 16px;
+  }
+
+  .grid-container,
+  .responsive-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}

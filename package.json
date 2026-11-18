@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "example:js": "node examples/javascript-basics.js",
-    "example:ts": "tsc -p tsconfig.examples.json && node dist/examples/typescript-basics.js"
+    "example:ts": "tsc -p tsconfig.examples.json && node dist/examples/typescript-basics.js",
+    "example:css": "vite examples/css-basics --open"
   },
   "dependencies": {
     "react": "^19.2.0",
